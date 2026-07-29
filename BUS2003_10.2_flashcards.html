@@ -1,0 +1,376 @@
+<title>Business Ethics: Regulatory Frameworks — Flashcards</title>
+<style>
+  :root {
+    --ink-900: #16233d;
+    --ink-700: #3c4a63;
+    --ink-500: #62708a;
+    --paper-050: #e9ecef;
+    --paper-000: #f8f9f7;
+    --card-000: #ffffff;
+    --brass-500: #a1782f;
+    --brass-600: #85611f;
+    --line: rgba(22, 35, 61, 0.16);
+    --shadow: rgba(22, 35, 61, 0.14);
+    --focus: #2f5fa8;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink-900: #e4e7ec;
+      --ink-700: #b7bfcc;
+      --ink-500: #8b93a3;
+      --paper-050: #10141c;
+      --paper-000: #171c26;
+      --card-000: #1d2330;
+      --brass-500: #cf9f4e;
+      --brass-600: #e6b661;
+      --line: rgba(228, 231, 236, 0.14);
+      --shadow: rgba(0, 0, 0, 0.45);
+      --focus: #7ea8e8;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink-900: #e4e7ec;
+    --ink-700: #b7bfcc;
+    --ink-500: #8b93a3;
+    --paper-050: #10141c;
+    --paper-000: #171c26;
+    --card-000: #1d2330;
+    --brass-500: #cf9f4e;
+    --brass-600: #e6b661;
+    --line: rgba(228, 231, 236, 0.14);
+    --shadow: rgba(0, 0, 0, 0.45);
+    --focus: #7ea8e8;
+  }
+
+  :root[data-theme="light"] {
+    --ink-900: #16233d;
+    --ink-700: #3c4a63;
+    --ink-500: #62708a;
+    --paper-050: #e9ecef;
+    --paper-000: #f8f9f7;
+    --card-000: #ffffff;
+    --brass-500: #a1782f;
+    --brass-600: #85611f;
+    --line: rgba(22, 35, 61, 0.16);
+    --shadow: rgba(22, 35, 61, 0.14);
+    --focus: #2f5fa8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper-050);
+    color: var(--ink-900);
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 3.5rem 1.75rem 5rem;
+  }
+
+  header.masthead {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1.75rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass-600);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  h1 {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", ui-serif, serif;
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    color: var(--ink-900);
+  }
+
+  .sub {
+    color: var(--ink-700);
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  .deck-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.4rem;
+    color: var(--ink-500);
+    font-size: 0.85rem;
+  }
+
+  .deck-note .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brass-500);
+    flex: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 620px) {
+    .grid { grid-template-columns: 1fr; }
+    .page { padding: 2.25rem 1.25rem 3.5rem; }
+  }
+
+  .card-slot {
+    perspective: 1600px;
+    min-height: 250px;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
+    transform-style: preserve-3d;
+  }
+
+  .card[aria-pressed="true"] .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-inner { transition: none; }
+  }
+
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+    background: var(--card-000);
+    box-shadow: 0 1px 2px var(--shadow);
+    padding: 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:focus-visible .face.front {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  .face.front {
+    justify-content: space-between;
+  }
+
+  .face.back {
+    transform: rotateY(180deg);
+    justify-content: flex-start;
+    background: var(--paper-000);
+  }
+
+  .mark {
+    font-family: Georgia, "Iowan Old Style", ui-serif, serif;
+    font-size: 1.6rem;
+    color: var(--brass-500);
+    line-height: 1;
+  }
+
+  .term {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", ui-serif, serif;
+    font-size: 1.32rem;
+    line-height: 1.28;
+    color: var(--ink-900);
+    text-wrap: balance;
+    margin-top: 1.4rem;
+  }
+
+  .flip-hint {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+  }
+
+  .back .label {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass-600);
+    margin-bottom: 0.7rem;
+  }
+
+  .back p {
+    font-size: 0.94rem;
+    line-height: 1.56;
+    color: var(--ink-700);
+    margin: 0;
+  }
+
+  footer.colophon {
+    margin-top: 3rem;
+    color: var(--ink-500);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+</style>
+
+<div class="page">
+  <header class="masthead">
+    <span class="eyebrow">Study Deck &middot; Business Ethics</span>
+    <h1>Regulatory Frameworks for Ethical Business</h1>
+    <p class="sub">Six mechanisms governments and institutions use to set and enforce minimum standards for ethical conduct in business.</p>
+    <div class="deck-note"><span class="dot"></span> Click or press Enter on a card to reveal its definition.</div>
+  </header>
+
+  <div class="grid">
+
+    <div class="card-slot">
+      <button class="card" aria-pressed="false">
+        <div class="card-inner">
+          <div class="face front">
+            <span class="mark">&sect;1</span>
+            <div class="term">Legal Frameworks</div>
+            <span class="flip-hint">Flip</span>
+          </div>
+          <div class="face back">
+            <span class="label">Definition</span>
+            <p>Governments enact laws that set minimum standards for ethical behaviour in areas such as labour practices, product safety, environmental protection, and anti-corruption measures. Violation of these laws can result in penalties and sanctions for businesses.</p>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="card-slot">
+      <button class="card" aria-pressed="false">
+        <div class="card-inner">
+          <div class="face front">
+            <span class="mark">&sect;2</span>
+            <div class="term">Industry-specific Regulations</div>
+            <span class="flip-hint">Flip</span>
+          </div>
+          <div class="face back">
+            <span class="label">Definition</span>
+            <p>Certain industries may have specific regulations tailored to address ethical challenges unique to their sector. For example, financial institutions are subject to strict regulations to ensure transparency, accountability, and the protection of customers' financial interests.</p>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="card-slot">
+      <button class="card" aria-pressed="false">
+        <div class="card-inner">
+          <div class="face front">
+            <span class="mark">&sect;3</span>
+            <div class="term">Corporate Governance Rules</div>
+            <span class="flip-hint">Flip</span>
+          </div>
+          <div class="face back">
+            <span class="label">Definition</span>
+            <p>Regulations on corporate governance aim to ensure that companies are managed responsibly and ethically, with appropriate checks and balances to prevent fraud, insider trading, and other unethical activities.</p>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="card-slot">
+      <button class="card" aria-pressed="false">
+        <div class="card-inner">
+          <div class="face front">
+            <span class="mark">&sect;4</span>
+            <div class="term">Consumer Protection Laws</div>
+            <span class="flip-hint">Flip</span>
+          </div>
+          <div class="face back">
+            <span class="label">Definition</span>
+            <p>Consumer protection regulations are designed to prevent deceptive marketing, unfair business practices, and the sale of unsafe products, ensuring businesses treat their customers fairly.</p>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="card-slot">
+      <button class="card" aria-pressed="false">
+        <div class="card-inner">
+          <div class="face front">
+            <span class="mark">&sect;5</span>
+            <div class="term">Environmental Regulations</div>
+            <span class="flip-hint">Flip</span>
+          </div>
+          <div class="face back">
+            <span class="label">Definition</span>
+            <p>Governments may impose environmental regulations to control pollution, waste management, and the sustainable use of natural resources, promoting ethical environmental practices by businesses.</p>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="card-slot">
+      <button class="card" aria-pressed="false">
+        <div class="card-inner">
+          <div class="face front">
+            <span class="mark">&sect;6</span>
+            <div class="term">Social Responsibility Reporting</div>
+            <span class="flip-hint">Flip</span>
+          </div>
+          <div class="face back">
+            <span class="label">Definition</span>
+            <p>Some countries or regions may require larger companies to disclose their social and environmental impact through sustainability reports, encouraging transparency and responsible practices.</p>
+          </div>
+        </div>
+      </button>
+    </div>
+
+  </div>
+
+  <footer class="colophon">6 terms &middot; click any card to flip between term and definition</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var pressed = card.getAttribute('aria-pressed') === 'true';
+      card.setAttribute('aria-pressed', String(!pressed));
+    });
+  });
+</script>
